@@ -2,17 +2,53 @@ main {
     padding-left: 40px;
 }
 .keyframe {
-    margin-top: 30px;
+    margin-top: 300px;
     width: 200px;
     height: 200px;
     border-radius: 100%;
     background-color: salmon;
-    animation-fill-mode: both;
-    animation-iteration-count: 2;
+    animation-name: ball;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+    animation-duration: 4s;
+}
+.keyframe2 {
+    position: absolute;
+    margin-top: 300px;
+    margin-bottom: 300px;
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    background-color: salmon;
+    animation: ball 4s ease-in-out 1s infinite alternate,
+               bounce 1s cubic-bezier(.21,.57,.81,.46) infinite alternate;
+}
+
+@keyframes bounce{
+    0%{ 
+        top: -200px;
+    }
+    50%{
+        top: -300px;
+    }
+    100%{
+        top: -200px;
+    }
+}
+
+@keyframes ball{
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(1500px);
+    }
 }
 
 .animate-me-rotate {
-    margin-top: 30px;
+    margin-top: 300px;
     width: 200px;
     height: 200px;
     background-color: hotpink;
